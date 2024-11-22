@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/third-party-form-embedder/static/css/main.ebbfa8af.css",
+    "main.js": "/third-party-form-embedder/static/js/main.c9325e4e.js",
+    "index.html": "/third-party-form-embedder/index.html",
+    "main.ebbfa8af.css.map": "/third-party-form-embedder/static/css/main.ebbfa8af.css.map",
+    "main.c9325e4e.js.map": "/third-party-form-embedder/static/js/main.c9325e4e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ebbfa8af.css",
+    "static/js/main.c9325e4e.js"
+  ]
+}
