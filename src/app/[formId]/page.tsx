@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { TESTABLE_FORM_IDS } from '@/constants/forms'
 
 import Embedder from './components/Embedder'
@@ -8,7 +7,7 @@ export async function generateStaticParams() {
 }
 
 async function Page(
-    { params: unresolvedParams }: { params: { formId: string } }
+    { params: unresolvedParams }: { params: Promise<{ formId: string }> }
 ) {
     const params = await unresolvedParams
     return <Embedder params={params} />
