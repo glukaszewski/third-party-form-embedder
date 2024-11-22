@@ -43,4 +43,6 @@ class Jwt {
     }
 }
 
-export default new Jwt()
+const jwt = new Jwt()
+
+export default jwt
