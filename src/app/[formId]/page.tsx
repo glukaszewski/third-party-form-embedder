@@ -51,8 +51,8 @@ export default function Embedder() {
                 } else {
                     setLoadingStep(`Warning: Sheetgo API returned ${status}`)
                 }
-            } catch (e) {
-                if (e?.response?.status) status = e.response.status
+            } catch (e: any) {
+                if (e.response && e.response.status) status = e.response.status
             }
             if (status === 200) {
                 token = values.token
