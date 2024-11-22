@@ -18,7 +18,7 @@ import { SHEETGO_APP_URL } from '@/constants/env'
 import { ROOT } from '@/constants/routes'
 
 export function generateStaticParams() {
-    return [ { formId: [""] } ]
+    return [{ formId: [''] }]
 }
 
 export default function Embedder() {
