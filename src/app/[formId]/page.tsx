@@ -17,10 +17,6 @@ import { RESOURCE_EMBED_URL } from '@/constants/embed'
 import { SHEETGO_APP_URL } from '@/constants/env'
 import { ROOT } from '@/constants/routes'
 
-export function generateStaticParams() {
-    return [{ formId: [''] }]
-}
-
 export default function Embedder() {
     const { formId } = useParams()
     const router = useRouter()
