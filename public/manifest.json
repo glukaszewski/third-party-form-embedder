@@ -1,0 +1,10 @@
+{
+    "name": "Third-party form embedder",
+    "short_name": "Form embedder",
+    "icons": [],
+    "theme_color": "#1c272c",
+    "background_color": "#1c272c",
+    "start_url": "/",
+    "display": "standalone"
+  }
+  

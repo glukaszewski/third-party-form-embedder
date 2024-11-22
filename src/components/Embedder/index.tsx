@@ -1,10 +1,6 @@
-// @ts-nocheck
-
-'use client'
-
 import React, { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
-import jwt from 'jsonwebtoken'
+import { useParams } from 'react-router-dom'
+import jwt from '../../services/jwt'
 
 import {
     TOKEN_ACQUISITION_STARTING_SLEEP_TIME,
@@ -12,14 +8,12 @@ import {
     TOKEN_ACQUISITION_ENDPOINT,
     TOKEN_RESOURCE_TARGET,
     TOKEN_ALG
-} from '@/constants/token'
-import { RESOURCE_EMBED_URL } from '@/constants/embed'
-import { SHEETGO_APP_URL } from '@/constants/env'
-import { ROOT } from '@/constants/routes'
+} from '../../constants/token'
+import { RESOURCE_EMBED_URL } from '../../constants/embed'
+import { SHEETGO_APP_URL } from '../../constants/env'
 
-export default function Embedder({ params }) {
-    const { formId } = params
-    const router = useRouter()
+export default function Embedder() {
+    const { formId } = useParams()
 
     const [sessionToken, setSessionToken] = useState(null)
     const [embedUrl, setEmbedUrl] = useState('')
@@ -87,10 +81,11 @@ export default function Embedder({ params }) {
             asset: formId,
             type: TOKEN_RESOURCE_TARGET
         }
-        return jwt.sign(payload, process.env.CLIENT_SECRET, {
+        const signedJwt = await jwt.sign(payload, process.env.CLIENT_SECRET, {
             algorithm: TOKEN_ALG,
-            expiresIn: `1m`
+            expiresIn: '1m'
         })
+        return signedJwt
     }
 
     const handleEmbed = async () => {
@@ -117,10 +112,7 @@ export default function Embedder({ params }) {
     }
 
     useEffect(() => {
-        if (!formId) {
-            router.push(ROOT)
-        }
-
+        if (!formId) return
         handleEmbed()
     }, [formId])
 
@@ -190,18 +182,22 @@ export default function Embedder({ params }) {
         )
     }
 
-    return embedUrl && (
-        <iframe
-            style={{
-                outline: 'none',
-                border: 'none',
-                height: '100%',
-                width: '100%'
-            }}
-            allow={`camera *; identity-credentials-get; clipboard-write self ${SHEETGO_APP_URL}`}
-            src={embedUrl}
-            height="100%"
-            width="100%"
-        />
-    )
+    if (embedUrl) {
+        return (
+            <iframe
+                style={{
+                    outline: 'none',
+                    border: 'none',
+                    height: '100%',
+                    width: '100%'
+                }}
+                allow={`camera *; identity-credentials-get; clipboard-write self ${SHEETGO_APP_URL}`}
+                src={embedUrl}
+                height="100%"
+                width="100%"
+            />
+        )
+    }
+
+    return <></>
 }

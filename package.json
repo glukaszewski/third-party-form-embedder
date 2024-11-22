@@ -1,29 +1,58 @@
 {
-  "name": "third-party-form-embedder",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "jsonwebtoken": "^9.0.2",
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "vite-plugin-babel": "^1.2.0"
-  },
-  "devDependencies": {
-    "@types/jsonwebtoken": "^9.0.7",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "babel-plugin-react-compiler": "^19.0.0-beta-0dec889-20241115",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.3",
-    "eslint-plugin-react-compiler": "^19.0.0-beta-0dec889-20241115",
-    "typescript": "^5"
-  }
+    "name": "third-party-form-embedder",
+    "version": "0.1.0",
+    "homepage": "https://glukaszewski.github.io/third-party-form-embedder",
+    "private": true,
+    "dependencies": {
+        "@types/node": "^16.11.36",
+        "@types/react": "^18.0.9",
+        "@types/react-dom": "^18.0.5",
+        "buffer": "^6.0.3",
+        "classnames": "^2.3.2",
+        "jose": "^5.9.6",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0",
+        "react-intl": "^6.2.10",
+        "react-router": "^6.3.0",
+        "react-router-dom": "^6.3.0",
+        "react-scripts": "^5.0.1",
+        "typescript": "^4.7.2"
+    },
+    "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "master -d build",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "serve": "serve -s build"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+        "@typescript-eslint/eslint-plugin": "^5.27.0",
+        "@typescript-eslint/parser": "^5.27.0",
+        "cross-env": "^7.0.3",
+        "eslint": ">=5.16.0",
+        "eslint-config-google": "^0.14.0",
+        "eslint-plugin-react": "^7.30.0",
+        "serve": "^14.2.4"
+    }
 }
