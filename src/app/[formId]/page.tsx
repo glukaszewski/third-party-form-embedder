@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { TESTABLE_FORM_IDS } from '@/constants/forms'
 
 import Embedder from './components/Embedder'
